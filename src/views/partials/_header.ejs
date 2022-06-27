@@ -1,0 +1,35 @@
+<nav class="navbar mt-3" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img id="logo_img" src="http://www.logobook.com/wp-content/uploads/2016/10/Krefina_Bank_logo.svg" width="112" height="28">
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      
+  
+      <div class="navbar-end mr-3">
+        <% if(article.length>1){ %>
+          <form action="/" method="post">
+            <div class="field has-addons">
+              <div class="control">
+                <input class="input" name="search" type="text" placeholder="Search Article">
+              </div>
+              <div class="control">
+                <button class="button is-info" type="submit">
+                  Search
+                </button>
+              </div>
+          </div>
+          </form>
+        <%}%>
+
+      </div>
+    </div>
+  </nav>

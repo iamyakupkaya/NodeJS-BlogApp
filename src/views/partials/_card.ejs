@@ -1,0 +1,40 @@
+<% 
+    //Eğer index=undefined ise tek makale gösteriliyor demektir index sayı ise tüm makaleler blog anasayfasında gösteriliyordur.
+    let yukseklik="";
+    if(index == undefined) {
+        yukseklik="600";
+    }
+    else{
+        yukseklik = "60"+(Number(index)%10).toString();
+    }
+%> 
+
+<div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="https://source.unsplash.com/random/800x<%=yukseklik%>?animal" alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4"><%- article.title.rendered%></p>
+        </div>
+      </div>
+  
+      <div class="content">
+        <%- index==undefined ? article.content.rendered  : article.excerpt.rendered.slice(0,200) %>
+
+        <% if(index !== undefined){%>
+            <div class="block"></div>
+            <a href="/<%= article.id %>">MORE...</a>
+       <% } %>
+
+      </div>
+    </div>
+  </div>
