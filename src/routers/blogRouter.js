@@ -11,6 +11,7 @@ const {
 //I just use router path here. Won't use controller function like (req, res)
 
 router.get("/", getAllArticles);
+router.get("/blog", getAllArticles);
 
 router.get("/:id", getOneArticle);
 

@@ -1,13 +1,24 @@
-<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
-    <a class="pagination-previous">Previous</a>
-    <a class="pagination-next">Next page</a>
+<% 
+    //objeyi köşeli parantez ile taradık çünkü aradığımız value ismi içerisinde - tire işareti var
+    const totalPages=pagination["x-wp-totalpages"];
+    const totalData = pagination["x-wp-total"];
+%> 
+
+<% if (totalPages>1) { %>
+
+  <nav class="pagination is-centered is-rounded columns " role="navigation" aria-label="pagination">
+    <a <%- parseInt(activePage) == 1 ? "" : ("href=/blog?page=" + (parseInt(activePage)-1))%>   class="pagination-previous" <%- parseInt(activePage) == 1 ? "disabled" : null%>  >Previous</a>
+    <a <%- parseInt(activePage) == totalPages ? "" : ("href=/blog?page=" + (parseInt(activePage)+1))%> class="pagination-next" <%- parseInt(activePage) == 14 ? "disabled" : null%>>Next page</a>
     <ul class="pagination-list">
-      <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
-      <li><span class="pagination-ellipsis">&hellip;</span></li>
-      <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
-      <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
-      <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
-      <li><span class="pagination-ellipsis">&hellip;</span></li>
-      <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
+      <% let cond = true %> 
+      <% for( let index = 0; index < totalPages; index++ ) { %>
+        
+        <li><a href="/blog?page=<%-index+1%> " class="pagination-link <%- (index+1) == parseInt(activePage) ? "is-current" : "" %> " aria-label="Goto page <%-index+1 %> "><%- index+1 %> </a></li>
+
+
+      <% } %>
     </ul>
   </nav>
+
+<% } %>
+

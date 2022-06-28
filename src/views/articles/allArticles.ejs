@@ -1,16 +1,16 @@
 <%- include("../partials/_header", {article:allArticles}) %>
 
 
-<div class="columns is-multiline is-mobile">
+<div class="columns is-multiline">
 
     <% allArticles.forEach((article,index) => { %>
-        <div class="block"></div>
-        <div class="column is-6"><%- include("../partials/_card", {article,index}) %> </div>
+        <div class="column is-6 mt-4"><%- include("../partials/_card", {article,index}) %> </div>
      
     <% }) %>
 
-</div>
-<div class="block"></div>
-<%- include("../partials/_pagination") %>
-<div class="block"></div>
 
+</div>
+
+<div class="block"></div>
+<%- include("../partials/_pagination", {pagination, activePage}) %>
+<div class="block mb-4"></div>
